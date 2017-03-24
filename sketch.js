@@ -7,7 +7,6 @@ var dTime = 0.15;
 var dFdbk = 0.3;
 
 //scale - f#m pentatonic
-var notes = [370.0, 440.0, 493.9, 554.4, 659.3, 740];
 var notes = [740.0, 659.3, 554.4, 494.9, 440.0, 370.0];
 //seq stuff
 var tick, tempo, step;
@@ -23,7 +22,7 @@ var track5 = [];
 var buttonW = 40;
 
 function setup() {
-  createCanvas(640, 300);
+  createCanvas(640, 240);
   
   translate(buttonW, buttonW);
 	fill(255);
@@ -108,7 +107,7 @@ function setup() {
 	//for 120 bpm:
 	//120/60 = 2, 60fps/2 = 30, 30 / 2 = 15 frames per eight note
 	//so:
-	tempo = 120;
+	tempo = 180;
 	tick = int((60/(tempo/60))/4);
 	step = 0;
 	
@@ -271,15 +270,15 @@ function drawPlayhead(s){
 }
   
 function mouseClicked(){
-	if(mouseX > buttonW && mouseX < (buttonW * 17)){
-		if(mouseY > buttonW && mouseY < buttonW * 7){
+	//if(mouseX > buttonW && mouseX < (buttonW * 17)){
+  //if(mouseY > buttonW && mouseY < buttonW * 7){
 
-			var clickedBtnX = int((mouseX - buttonW) / buttonW);
-			var clickedBtnY = int((mouseY - buttonW) / buttonW);
-			console.log(mouseX, mouseY, clickedBtnX, clickedBtnY);
+			var clickedBtnX = int((mouseX) / buttonW);
+			var clickedBtnY = int((mouseY) / buttonW);
+			console.log(mouseX + ' ' + mouseY + ' ' + clickedBtnX + ' ' + clickedBtnY);
 			upDateSeq(clickedBtnX, clickedBtnY);
-		}
-	}
+		//}
+	//}
 }  
   
 function upDateSeq(x, y){
